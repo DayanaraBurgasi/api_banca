@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.cuentaRouter = void 0;
+const express_1 = require("express");
+const controllers_1 = require("../controllers");
+const middlewares_1 = require("../middlewares");
+exports.cuentaRouter = (0, express_1.Router)();
+exports.cuentaRouter.use(middlewares_1.verificarToken);
+exports.cuentaRouter.post('/', controllers_1.CuentaController.crear);
+exports.cuentaRouter.get('/listar-cuentas', controllers_1.CuentaController.listarCuenta);
+exports.default = exports.cuentaRouter;

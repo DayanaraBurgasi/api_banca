@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.contactoRouter = void 0;
+const express_1 = require("express");
+const controllers_1 = require("../controllers");
+const middlewares_1 = require("../middlewares");
+exports.contactoRouter = (0, express_1.Router)();
+exports.contactoRouter.use(middlewares_1.verificarToken);
+exports.contactoRouter.post("/crear-contacto", controllers_1.ContactoController.registrar);
+exports.contactoRouter.get("/listar-contactos", controllers_1.ContactoController.listar);
+exports.contactoRouter.delete("/eliminar-contacto/:contactoId", controllers_1.ContactoController.eliminar);
+exports.default = exports.contactoRouter;
